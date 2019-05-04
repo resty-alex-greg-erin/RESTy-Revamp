@@ -4,10 +4,10 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import reporter from "./middleware/reporter.js";
 import thunk from "redux-thunk";
 
-import historyReducer from "../components/resty/reducer.js";
+import reducer from "./reducer.js";
 
 let reducers = combineReducers({
-  history: historyReducer
+  records: reducer
 });
 
 const store = () =>

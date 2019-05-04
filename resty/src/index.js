@@ -1,19 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+// import { BrowserRouter } from "react-router-dom";
+import App from "./app.js";
 
-import App from './app.js';
+import createStore from "./store/store-index.js";
+const store = createStore();
+
 
 class Main extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <Provider store={store}>
+        {/* <BrowserRouter> */}
+          <App />
+        {/* </BrowserRouter> */}
+      </Provider>
     );
   }
 }
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 ReactDOM.render(<Main />, rootElement);
